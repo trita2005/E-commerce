@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\adminicontroller;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard',[adminicontroller::class, 'dashboard'])->name('home');
+Route::get('/Home',[HomeController::class,'Home'])->name('home');  

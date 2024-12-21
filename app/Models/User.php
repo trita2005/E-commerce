@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'roles_id',
+        'gender',
+        'image',
     ];
 
     /**
@@ -42,4 +45,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    Public function product(){
+        return $this->hasEntry(product::class, 'user_id', 'id');
+    }
+    public function roles ()
+    {
+        return $this->belongsTo(Roles::class,'roles_id', 'id');
+    }
 }
